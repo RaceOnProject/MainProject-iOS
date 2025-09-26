@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+class NetworkService: NetworkLogger {
     private let session: URLSession
 
     init(session: URLSession = URLSession(configuration: .default)) {
@@ -17,16 +17,37 @@ class NetworkService {
     func request<T: Decodable>(
         _ request: URLRequest
     ) async throws -> T {
-        let (data, response) = try await session.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.unknown
+        requestWillStart(request)
+
+        var responseData: Data?
+        var urlResponse: URLResponse?
+        var requestError: Error?
+
+        defer {
+            requestDidFinish(urlResponse, data: responseData, error: requestError)
         }
-        guard 200...299 ~= httpResponse.statusCode else {
-            throw NetworkError.serverError(httpResponse.statusCode)
-        }
+
         do {
-            return try JSONDecoder().decode(T.self, from: data)
+            let (data, response) = try await session.data(for: request)
+            responseData = data
+            urlResponse = response
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                requestError = NetworkError.unknown
+                throw NetworkError.unknown
+            }
+            guard 200...299 ~= httpResponse.statusCode else {
+                requestError = NetworkError.serverError(httpResponse.statusCode)
+                throw NetworkError.serverError(httpResponse.statusCode)
+            }
+
+            let result = try JSONDecoder().decode(T.self, from: data)
+            return result
+        } catch let error as NetworkError {
+            requestError = error
+            throw error
         } catch {
+            requestError = NetworkError.decodingFailed
             throw NetworkError.decodingFailed
         }
     }
