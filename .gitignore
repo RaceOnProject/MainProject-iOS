@@ -106,3 +106,7 @@ iOSInjectionProject/
 **/._.DS_Store
 
 *.xcconfig
+
+# Claude AI 관련 파일
+CLAUDE.md
+**/CLAUDE.md
