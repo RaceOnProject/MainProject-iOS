@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService: NetworkLogger {
+final class NetworkService: NetworkLogger, Sendable {
     private let session: URLSession
 
     init(session: URLSession = URLSession(configuration: .default)) {

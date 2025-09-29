@@ -8,7 +8,7 @@
 import Dependencies
 import ComposableArchitecture
 
-protocol TestAPIService {
+protocol TestAPIService: Sendable {
     func searchCompany(id: Int) async throws -> Company
     func duplicateCheck(nickname: String) async throws -> DuplicateCheckResult
     func terms() async throws -> [Term]
