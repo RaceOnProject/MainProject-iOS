@@ -10,8 +10,19 @@
 		59530F722E7836160001C60C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 59530F712E7836160001C60C /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D4A203C02E8A4A3400BE8101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59530F572E7833AE0001C60C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59530F5E2E7833AE0001C60C;
+			remoteInfo = FlowFolio;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		59530F5F2E7833AE0001C60C /* FlowFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A203BC2E8A4A3400BE8101 /* FlowFolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowFolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +44,11 @@
 			path = FlowFolio;
 			sourceTree = "<group>";
 		};
+		D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FlowFolioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4A203B92E8A4A3400BE8101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				59530F612E7833AE0001C60C /* FlowFolio */,
+				D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */,
 				59530F602E7833AE0001C60C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				59530F5F2E7833AE0001C60C /* FlowFolio.app */,
+				D4A203BC2E8A4A3400BE8101 /* FlowFolioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +114,29 @@
 			productReference = 59530F5F2E7833AE0001C60C /* FlowFolio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D4A203BB2E8A4A3400BE8101 /* FlowFolioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A203C22E8A4A3400BE8101 /* Build configuration list for PBXNativeTarget "FlowFolioTests" */;
+			buildPhases = (
+				D4A203B82E8A4A3400BE8101 /* Sources */,
+				D4A203B92E8A4A3400BE8101 /* Frameworks */,
+				D4A203BA2E8A4A3400BE8101 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4A203C12E8A4A3400BE8101 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */,
+			);
+			name = FlowFolioTests;
+			packageProductDependencies = (
+			);
+			productName = FlowFolioTests;
+			productReference = D4A203BC2E8A4A3400BE8101 /* FlowFolioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,11 +144,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					59530F5E2E7833AE0001C60C = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					D4A203BB2E8A4A3400BE8101 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 59530F5E2E7833AE0001C60C;
 					};
 				};
 			};
@@ -122,12 +174,20 @@
 			projectRoot = "";
 			targets = (
 				59530F5E2E7833AE0001C60C /* FlowFolio */,
+				D4A203BB2E8A4A3400BE8101 /* FlowFolioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		59530F5D2E7833AE0001C60C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4A203BA2E8A4A3400BE8101 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,7 +204,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4A203B82E8A4A3400BE8101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4A203C12E8A4A3400BE8101 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59530F5E2E7833AE0001C60C /* FlowFolio */;
+			targetProxy = D4A203C02E8A4A3400BE8101 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		59530F6B2E7833B00001C60C /* Debug */ = {
@@ -340,6 +415,44 @@
 			};
 			name = Release;
 		};
+		D4A203C32E8A4A3400BE8101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 969CXKBGH9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmacbook.FlowFolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowFolio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlowFolio";
+			};
+			name = Debug;
+		};
+		D4A203C42E8A4A3400BE8101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 969CXKBGH9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmacbook.FlowFolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowFolio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlowFolio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -357,6 +470,15 @@
 			buildConfigurations = (
 				59530F6E2E7833B00001C60C /* Debug */,
 				59530F6F2E7833B00001C60C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4A203C22E8A4A3400BE8101 /* Build configuration list for PBXNativeTarget "FlowFolioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A203C32E8A4A3400BE8101 /* Debug */,
+				D4A203C42E8A4A3400BE8101 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
