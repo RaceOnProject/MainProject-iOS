@@ -10,14 +10,13 @@ import ComposableArchitecture
 
 struct OccupationView: View {
     
-    let store : StoreOf<OccupationFeature>
+    let store: StoreOf<OccupationFeature>
     
     var body: some View {
         
-            VStack{
-                HStack{
-                    VStack(alignment: .leading,spacing: 8)
-                    {
+            VStack {
+                HStack {
+                    VStack(alignment: .leading,spacing: 8) {
                         Text("환영합니다!")
                             .fontWeight(.light)
                             .foregroundStyle(Color.blue)
@@ -29,8 +28,7 @@ struct OccupationView: View {
                     .padding(.bottom,24)
                     Spacer()
                 }
-                VStack(spacing: 16)
-                {
+                VStack(spacing: 16) {
                     ForEach(Occupation.allCases, id: \.self) { occupation in
                         SelectJobCell(
                             data: occupation.data,
@@ -41,7 +39,7 @@ struct OccupationView: View {
                         )
                     }
                 }
-                Button{
+                Button {
                     store.send(.confirmButtonTapped)
                 } label: {
                     Text("선택 완료")
@@ -73,10 +71,8 @@ struct SelectJobCell: View {
     let onTap: () -> Void
     
     var body: some View {
-        Button(action: onTap)
-        {
-            HStack(spacing: 16)
-            {
+        Button(action: onTap) {
+            HStack(spacing: 16) {
                 Image(systemName: data.imageName)
                     .font(.system(size: 40))
                     .foregroundColor(isSelected ? .white : .gray)
