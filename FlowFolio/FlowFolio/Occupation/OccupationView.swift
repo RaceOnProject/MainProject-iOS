@@ -14,7 +14,6 @@ struct OccupationView: View {
     
     var body: some View {
         
-        WithViewStore(store, observe: { $0 }) { viewStore in
             VStack{
                 HStack{
                     VStack(alignment: .leading,spacing: 8)
@@ -35,15 +34,15 @@ struct OccupationView: View {
                     ForEach(Occupation.allCases, id: \.self) { occupation in
                         SelectJobCell(
                             data: occupation.data,
-                            isSelected: viewStore.selectedOccupation == occupation,
+                            isSelected: store.selectedOccupation == occupation,
                             onTap: {
-                                viewStore.send(.occupationSelected(occupation))
+                                store.send(.occupationSelected(occupation))
                             }
                         )
                     }
                 }
                 Button{
-                    viewStore.send(.confirmButtonTapped)
+                    store.send(.confirmButtonTapped)
                 } label: {
                     Text("선택 완료")
                         .font(.headline)
@@ -57,9 +56,8 @@ struct OccupationView: View {
                 }
             }
             .padding(.horizontal,16)
-        }
+        
     }
-    
 }
 
 // 직군선택 카드뷰 셀
