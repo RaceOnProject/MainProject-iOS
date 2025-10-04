@@ -7,10 +7,20 @@
 
 import SwiftUI
 import ComposableArchitecture
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 struct LoginView: View {
     let store: StoreOf<LoginFeature>
     
+    init(store: StoreOf<LoginFeature>) {
+        self.store = store
+        
+        let kakaoNativeAppKey = ServiceEnvironment.KAKAO_NATIVE_APP_KEY.value
+        KakaoSDK.initSDK(appKey: kakaoNativeAppKey)
+    }
+    
+    // TODO: state의 errorMessage에 따라 에러 핸들링 기획 요청
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
@@ -26,6 +36,11 @@ struct LoginView: View {
                 .padding(.horizontal, 16)
         }
         .padding(.bottom, 85)
+        .onOpenURL(perform: { url in
+            if AuthApi.isKakaoTalkLoginUrl(url) {
+                _ = AuthController.handleOpenUrl(url: url)
+            }
+        })
     }
     
     var logo: some View {
@@ -34,7 +49,7 @@ struct LoginView: View {
     
     var kakaoLoginButton: some View {
         Button {
-            
+            store.send(.tryKakaoLogin)
         } label: {
             HStack(spacing: 12) {
                 Spacer()
