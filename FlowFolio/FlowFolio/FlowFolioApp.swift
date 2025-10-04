@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct FlowFolioApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(store: Store(initialState: LoginFeature.State()) {
+                LoginFeature()
+                    ._printChanges()
+            })
         }
     }
 }
