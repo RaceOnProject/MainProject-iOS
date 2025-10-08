@@ -55,6 +55,8 @@ struct OccupationView: View {
                 }
             }
             .padding(.horizontal,16)
+            .navigationTitle("직군 선택")
+            .navigationBarTitleDisplayMode(.inline)
         
     }
 }
@@ -107,6 +109,12 @@ struct SelectJobCell: View {
         }
         .buttonStyle(PlainButtonStyle())
     }
+}
+
+struct SelectJobCellData {
+    let title: String
+    let subtitle: String
+    let imageName: String
 }
 
 #Preview {
