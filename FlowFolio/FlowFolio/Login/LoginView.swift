@@ -76,6 +76,7 @@ struct LoginView: View {
         } onCompletion: { result in
             store.send(.appleLoginResult(result))
         }
+        .clipShape(RoundedRectangle(cornerRadius: 12))
         .overlay {
             HStack(spacing: 12) { // TODO: 디자인은 15인데 공식 디자인 가이드는 12임 확인 필요
                 Spacer()
