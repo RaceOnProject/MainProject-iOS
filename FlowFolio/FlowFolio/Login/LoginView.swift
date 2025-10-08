@@ -9,6 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 import KakaoSDKCommon
 import KakaoSDKAuth
+import AuthenticationServices
 
 struct LoginView: View {
     let store: StoreOf<LoginFeature>
@@ -32,7 +33,7 @@ struct LoginView: View {
             kakaoLoginButton
                 .padding(.horizontal, 16)
             
-            googleLoginButton
+            appleLoginButton
                 .padding(.horizontal, 16)
         }
         .padding(.bottom, 85)
@@ -69,28 +70,33 @@ struct LoginView: View {
         }
     }
     
-    var googleLoginButton: some View {
-        Button {
-            
-        } label: {
+    var appleLoginButton: some View {
+        SignInWithAppleButton { request in
+            // TODO: 애플 로그인 시 요청 값 설정
+        } onCompletion: { result in
+            store.send(.appleLoginResult(result))
+        }
+        .overlay {
             HStack(spacing: 12) { // TODO: 디자인은 15인데 공식 디자인 가이드는 12임 확인 필요
                 Spacer()
                 
-                Image(.google)
+                Image(systemName: "apple.logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
                 
-                Text("Google") // TODO: 디자인 시스템 적용 후 폰트 적용
-                    .foregroundColor(Color("GoogleText")) // TODO: 디자인 시스템 적용 후 색상 수정
-                +
-                Text(" 계정으로 로그인")
-                    .foregroundColor(Color("GoogleText"))
+                Text("Apple로 로그인") // TODO: 디자인 작업 이후 수정
                 
                 Spacer()
             }
+            .foregroundColor(Color.white)
+            .frame(height: 56)
+            .background {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.black)
+            }
+            .allowsHitTesting(false)
         }
         .frame(height: 56)
-        .background {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color("GoogleNeutral")) // TODO: 디자인 시스템 적용 후 색상 수정
-        }
     }
 }

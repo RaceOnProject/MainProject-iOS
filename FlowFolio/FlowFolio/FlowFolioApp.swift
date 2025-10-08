@@ -14,7 +14,7 @@ struct FlowFolioApp: App {
         WindowGroup {
             LoginView(store: Store(initialState: LoginFeature.State()) {
                 LoginFeature()
-                    ._printChanges()
+//                    ._printChanges()
             })
         }
     }

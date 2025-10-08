@@ -17,6 +17,7 @@ struct KakaoLoginClient: Sendable {
 struct KakaoLoginToken: Sendable { // TODO: 서버에서 필요한 필드에 맞춰 변경
     let accessToken: String
     let refreshToken: String
+    let identityToken: String?
 }
 
 /// 카카오 로그인에 사용되는 클라이언트
@@ -33,7 +34,8 @@ extension KakaoLoginClient: DependencyKey {
                             } else if let token = token {
                                 continuation.resume(returning: KakaoLoginToken(
                                     accessToken: token.accessToken,
-                                    refreshToken: token.refreshToken
+                                    refreshToken: token.refreshToken,
+                                    identityToken: token.idToken
                                 ))
                             } else {
                                 continuation.resume(throwing: KakaoLoginError.noToken)
@@ -51,7 +53,8 @@ extension KakaoLoginClient: DependencyKey {
                             } else if let token = token {
                                 continuation.resume(returning: KakaoLoginToken(
                                     accessToken: token.accessToken,
-                                    refreshToken: token.refreshToken
+                                    refreshToken: token.refreshToken,
+                                    identityToken: token.idToken
                                 ))
                             } else {
                                 continuation.resume(throwing: KakaoLoginError.noToken)

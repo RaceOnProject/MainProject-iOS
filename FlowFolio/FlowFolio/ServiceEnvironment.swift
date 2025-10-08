@@ -5,6 +5,8 @@
 //  Created by 조성민 on 10/4/25.
 //
 
+import Foundation
+
 /// Config 값 관리 열거형
 enum ServiceEnvironment {
     case KAKAO_NATIVE_APP_KEY
