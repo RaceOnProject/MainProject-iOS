@@ -21,7 +21,7 @@ struct LoginView: View {
         KakaoSDK.initSDK(appKey: kakaoNativeAppKey)
     }
     
-    // TODO: state의 errorMessage에 따라 에러 핸들링 기획 요청
+    // TODO: state의 errorMessage에 따라 에러 핸들링 -> 기획 요청
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
