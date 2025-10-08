@@ -16,7 +16,8 @@ struct OccupationView: View {
         
             VStack {
                 HStack {
-                    VStack(alignment: .leading,spacing: 8) {
+                    VStack(alignment: .leading,
+                           spacing: 8) {
                         Text("환영합니다!")
                             .fontWeight(.light)
                             .foregroundStyle(Color.blue)
@@ -78,7 +79,8 @@ struct SelectJobCell: View {
                     .foregroundColor(isSelected ? .white : .gray)
                     .frame(width: 80, height: 80)
                 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading,
+                       spacing: 4) {
                     Text(data.title)
                         .font(.headline)
                         .fontWeight(.semibold)

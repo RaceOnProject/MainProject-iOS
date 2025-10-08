@@ -12,7 +12,7 @@ import ComposableArchitecture
 @Reducer
 struct OccupationFeature {
     
-    @ObservableState
+    @ObservableState		
     struct State: Equatable {
         ///선택된 직업
         var selectedOccupation : Occupation = .planner
@@ -27,7 +27,7 @@ struct OccupationFeature {
     }
     
     var body: some ReducerOf<Self> {
-        Reduce{ state , action in
+        Reduce{ state , action in				
             switch action {
                 
             case let .occupationSelected(occupation):
