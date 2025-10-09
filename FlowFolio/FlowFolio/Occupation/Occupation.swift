@@ -11,7 +11,6 @@ enum Occupation: CaseIterable {
     case planner
     case designer
     case developer
-    
     var data: SelectJobCellData {
         switch self {
         case .planner:

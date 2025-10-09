@@ -9,15 +9,11 @@ import SwiftUI
 import ComposableArchitecture
 
 struct OccupationView: View {
-    
     let store: StoreOf<OccupationFeature>
-    
     var body: some View {
-        
             VStack {
                 HStack {
-                    VStack(alignment: .leading,
-                           spacing: 8) {
+                    VStack(alignment: .leading,spacing: 8) {
                         Text("환영합니다!")
                             .fontWeight(.light)
                             .foregroundStyle(Color.blue)
@@ -57,22 +53,16 @@ struct OccupationView: View {
             .padding(.horizontal,16)
             .navigationTitle("직군 선택")
             .navigationBarTitleDisplayMode(.inline)
-        
     }
 }
-
 // 직군선택 카드뷰 셀
 struct SelectJobCell: View {
-    
     ///직군,설명,이미지 데이터 변수
     let data: SelectJobCellData
-    
     ///카드뷰 셀이 현재 선택된 상태인지 확인 변수
     let isSelected: Bool
-    
     /// 카드뷰 셀이 탭되었을때 발동시킬 함수
     let onTap: () -> Void
-    
     var body: some View {
         Button(action: onTap) {
             HStack(spacing: 16) {
@@ -80,21 +70,18 @@ struct SelectJobCell: View {
                     .font(.system(size: 40))
                     .foregroundColor(isSelected ? .white : .gray)
                     .frame(width: 80, height: 80)
-                
                 VStack(alignment: .leading,
                        spacing: 4) {
                     Text(data.title)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(isSelected ? .white : .black)
-                    
                     Text(data.subtitle)
                         .font(.subheadline)
                         .foregroundColor(isSelected ? .white.opacity(0.8) : .gray)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                
                 Spacer()
             }
             .padding(20)
@@ -110,17 +97,13 @@ struct SelectJobCell: View {
         .buttonStyle(PlainButtonStyle())
     }
 }
-
 struct SelectJobCellData {
     let title: String
     let subtitle: String
     let imageName: String
 }
-
 #Preview {
     OccupationView(store: Store(initialState: OccupationFeature.State())
        {OccupationFeature()}
     )
 }
-
-
