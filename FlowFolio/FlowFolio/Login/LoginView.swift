@@ -27,8 +27,8 @@ struct LoginView: View {
             
             appleLoginButton
                 .padding(.horizontal, 16)
+                .padding(.bottom, 85)
         }
-        .padding(.bottom, 85)
         .onOpenURL(perform: { url in
             if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.handleOpenUrl(url: url)
