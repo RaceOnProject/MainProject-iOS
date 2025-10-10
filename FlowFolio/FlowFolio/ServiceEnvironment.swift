@@ -14,7 +14,11 @@ enum ServiceEnvironment {
     var value: String {
         switch self {
         case .KAKAO_NATIVE_APP_KEY:
-            return Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as! String
+            guard let value = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String else {
+                assertionFailure("KAKAO_NATIVE_APP_KEY Not Found")
+                return ""
+            }
+            return value
         }
     }
 }

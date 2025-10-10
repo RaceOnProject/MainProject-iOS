@@ -19,7 +19,10 @@ struct KeychainClient: Sendable {
 extension KeychainClient: DependencyKey {
     static let liveValue = Self(
         save: { value, key in
-            guard let data = value.data(using: .utf8) else { return } // TODO: 에러처리 유무 논의
+            guard let data = value.data(using: .utf8) else {
+                assertionFailure("KeychainClient Save Failed - Wrong Data")
+                return
+            }
             let query: [String: Any] = [
                 kSecClass as String: kSecClassGenericPassword,
                 kSecAttrAccount as String: key,
