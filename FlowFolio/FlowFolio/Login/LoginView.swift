@@ -7,19 +7,11 @@
 
 import SwiftUI
 import ComposableArchitecture
-import KakaoSDKCommon
 import KakaoSDKAuth
 import AuthenticationServices
 
 struct LoginView: View {
     let store: StoreOf<LoginFeature>
-    
-    init(store: StoreOf<LoginFeature>) {
-        self.store = store
-        
-        let kakaoNativeAppKey = ServiceEnvironment.KAKAO_NATIVE_APP_KEY.value
-        KakaoSDK.initSDK(appKey: kakaoNativeAppKey)
-    }
     
     // TODO: state의 errorMessage에 따라 에러 핸들링 -> 기획 요청
     var body: some View {
