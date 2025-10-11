@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5939686E2E91169200E7809B /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5939686D2E91169200E7809B /* KakaoSDKAuth */; };
+		593968702E91169200E7809B /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 5939686F2E91169200E7809B /* KakaoSDKCommon */; };
+		593968722E91169200E7809B /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 593968712E91169200E7809B /* KakaoSDKUser */; };
 		59530F722E7836160001C60C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 59530F712E7836160001C60C /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
@@ -14,9 +17,22 @@
 		59530F5F2E7833AE0001C60C /* FlowFolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowFolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		593968742E9116CD00E7809B /* Exceptions for "FlowFolio" folder in "FlowFolio" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 59530F5E2E7833AE0001C60C /* FlowFolio */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		59530F612E7833AE0001C60C /* FlowFolio */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				593968742E9116CD00E7809B /* Exceptions for "FlowFolio" folder in "FlowFolio" target */,
+			);
 			path = FlowFolio;
 			sourceTree = "<group>";
 		};
@@ -27,7 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593968722E91169200E7809B /* KakaoSDKUser in Frameworks */,
 				59530F722E7836160001C60C /* ComposableArchitecture in Frameworks */,
+				593968702E91169200E7809B /* KakaoSDKCommon in Frameworks */,
+				5939686E2E91169200E7809B /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +90,9 @@
 			name = FlowFolio;
 			packageProductDependencies = (
 				59530F712E7836160001C60C /* ComposableArchitecture */,
+				5939686D2E91169200E7809B /* KakaoSDKAuth */,
+				5939686F2E91169200E7809B /* KakaoSDKCommon */,
+				593968712E91169200E7809B /* KakaoSDKUser */,
 			);
 			productName = FlowFolio;
 			productReference = 59530F5F2E7833AE0001C60C /* FlowFolio.app */;
@@ -102,6 +124,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				59530F702E7836160001C60C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				5939686C2E91169200E7809B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 59530F602E7833AE0001C60C /* Products */;
@@ -136,6 +159,8 @@
 /* Begin XCBuildConfiguration section */
 		59530F6B2E7833B00001C60C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 59530F612E7833AE0001C60C /* FlowFolio */;
+			baseConfigurationReferenceRelativePath = DebugConfig.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -194,6 +219,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -249,6 +275,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -258,12 +285,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlowFolio/FlowFolio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowFolio/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CQAR4CYZX;
+				DEVELOPMENT_TEAM = BKC2B4SXT8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowFolio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -275,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sungmincho.FlowFolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.undefined.flowfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -292,12 +321,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FlowFolio/FlowFolio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowFolio/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CQAR4CYZX;
+				DEVELOPMENT_TEAM = BKC2B4SXT8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowFolio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,7 +340,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sungmincho.FlowFolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.undefined.flowfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -345,6 +376,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5939686C2E91169200E7809B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.25.0;
+			};
+		};
 		59530F702E7836160001C60C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -356,6 +395,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5939686D2E91169200E7809B /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5939686C2E91169200E7809B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		5939686F2E91169200E7809B /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5939686C2E91169200E7809B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		593968712E91169200E7809B /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5939686C2E91169200E7809B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
 		59530F712E7836160001C60C /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 59530F702E7836160001C60C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
