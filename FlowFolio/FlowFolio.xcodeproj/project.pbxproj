@@ -44,9 +44,9 @@
 			path = FlowFolio;
 			sourceTree = "<group>";
 		};
-		D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */ = {
+		D46BCEFE2E9CD6DB00EC502D /* NetworkService */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FlowFolioTests;
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				59530F612E7833AE0001C60C /* FlowFolio */,
-				D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */,
+				D46BCEFC2E9CD6D400EC502D /* FlowFolioTests */,
 				59530F602E7833AE0001C60C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +86,14 @@
 				D4A203BC2E8A4A3400BE8101 /* FlowFolioTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D46BCEFC2E9CD6D400EC502D /* FlowFolioTests */ = {
+			isa = PBXGroup;
+			children = (
+				D46BCEFE2E9CD6DB00EC502D /* NetworkService */,
+			);
+			path = FlowFolioTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +136,7 @@
 				D4A203C12E8A4A3400BE8101 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D4A203BD2E8A4A3400BE8101 /* FlowFolioTests */,
+				D46BCEFE2E9CD6DB00EC502D /* NetworkService */,
 			);
 			name = FlowFolioTests;
 			packageProductDependencies = (

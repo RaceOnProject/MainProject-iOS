@@ -42,4 +42,6 @@ final class MockURLProtocol: URLProtocol {
             client?.urlProtocol(self, didFailWithError: error)
         }
     }
+    /// 응답 정지 시
+    override func stopLoading() { }
 }
