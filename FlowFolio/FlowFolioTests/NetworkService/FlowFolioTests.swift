@@ -11,7 +11,6 @@ import Foundation
 
 // MARK: - NetworkService Tests
 struct NetworkServiceTests {
-    
     @Test("성공케이스 -(200응답/JSONDATA) 일 때, 메시지를 정상 디코딩")
     func testSuccessfulRequest() async throws {
         defer { MockURLProtocol.mockResponseHandler = nil }
@@ -86,7 +85,6 @@ struct NetworkServiceTests {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let mockSession = URLSession(configuration: configuration)
-
         MockURLProtocol.mockResponseHandler = { request in
             let response = HTTPURLResponse(
                 url: request.url!,
@@ -100,8 +98,8 @@ struct NetworkServiceTests {
         let sut = NetworkService(session: mockSession)
         let request = URLRequest(url: URL(string: "https://api.example.com/user")!)
 
-        // When
         do {
+            // When
             let json: MockMessageResponse = try await sut.request(request)
             assertionFailure("이쪽 접근되면 안됨")
         } catch let error as NetworkError {
