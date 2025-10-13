@@ -39,3 +39,36 @@ struct NetworkServiceTests {
         // Then
         #expect(result.message == expectMessage)
     }
+
+    @Test("실패케이스 -(400 Bad Request) 일 때, NetworkError.serverError(400) 뱉는지 여부")
+    func testServerError400() async throws {
+        // Given
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let mockSession = URLSession(configuration: configuration)
+        MockURLProtocol.mockResponseHandler = { request in
+            let response = HTTPURLResponse(
+                url: request.url!,
+                statusCode: 400,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            return (response, Data())
+        }
+        let sut = NetworkService(session: mockSession)
+        let request = URLRequest(url: URL(string: "https://api.example.com/test")!)
+
+        // When
+        do {
+            let _: Dummy = try await sut.request(request)
+            assertionFailure("이쪽 접근되면 안됨")
+        } catch let error as NetworkError {
+            // Then
+            switch error {
+            case .serverError(let code):
+                #expect(code == 400)
+            default:
+                assertionFailure("이쪽 접근되면 안됨")
+            }
+        }
+    }
