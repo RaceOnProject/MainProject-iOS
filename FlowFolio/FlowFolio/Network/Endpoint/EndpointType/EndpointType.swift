@@ -45,7 +45,7 @@ extension EndpointType {
             do {
                 request.httpBody = try JSONEncoder().encode(body)
             } catch {
-                fatalError("Body 인코딩에 실패")
+                assertionFailure("Body 인코딩에 실패")
             }
         case .multipart(let data):
             let boundary = UUID().uuidString
