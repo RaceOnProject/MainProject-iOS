@@ -7,10 +7,17 @@
 
 import Foundation
 
-final class NetworkService: NetworkLogger, Sendable {
-    private let session: URLSession
+protocol URLSessionProtocol: Sendable {
+    func data(for request: URLRequest) async throws -> (Data, URLResponse)
+}
 
-    init(session: URLSession = URLSession(configuration: .default)) {
+extension URLSession: URLSessionProtocol {}
+
+final class NetworkService: NetworkLogger, Sendable {
+    /// URLSession을 직접적으로 의존하지 않도록 함 (이유: 테스트를 위해서)
+    private let session: URLSessionProtocol
+
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
 
