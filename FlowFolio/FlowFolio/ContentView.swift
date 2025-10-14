@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
+    @Dependency(\.testAPIService) var testAPIService
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +19,22 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            Task {
+                await testAllAPIs()
+            }
+        }
+    }
+
+    private func testAllAPIs() async {
+        print("=== TestAPI 호출 시작 ===")
+        do {
+            let company = try await testAPIService.searchCompany(id: 1512587)
+            let result = try await testAPIService.duplicateCheck(nickname: "testuser")
+            let terms = try await testAPIService.terms()
+        } catch {
+            print(error)
+        }
     }
 }
 

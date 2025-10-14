@@ -21,19 +21,13 @@ final class NetworkService: NetworkLogger, Sendable {
         self.session = session
     }
 
-    func request<T: Decodable>(
-        _ request: URLRequest
-    ) async throws -> T {
+    func request<T: Decodable>(_ request: URLRequest) async throws -> T {
         requestWillStart(request)
-
         var responseData: Data?
         var urlResponse: URLResponse?
         var requestError: Error?
-
-        defer {
-            requestDidFinish(urlResponse, data: responseData, error: requestError)
-        }
-
+        defer { requestDidFinish(urlResponse, data: responseData, error: requestError) }
+        
         do {
             let (data, response) = try await session.data(for: request)
             responseData = data

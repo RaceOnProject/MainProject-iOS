@@ -18,5 +18,5 @@ enum NetworkConfig {
         return baseURL
     }()
 
-    static let exampleToken = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2OSIsImlhdCI6MTc1ODYxNDQyOSwiZXhwIjoxNzU4NjE4MDI5fQ.SZx8u3-BxIvwmE9h_XtwX5K8Rev5LwH6Ak-fVRPwCFUnAgAC8r0DhQWe9vVPFH43JgXL1zxKIjGaz3msFj1P_Q"
+    static let exampleToken = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2OSIsImlhdCI6MTc2MDQxOTA0NiwiZXhwIjoxNzYwNDIyNjQ2fQ.RH_Kc46u3HUh01OBwQ7TwW5B_oKXDEzwfNDhc8rlNhGq7ilUkatHDoJ7WMNTiS62t-TVeDwKV4mJyzgM_oKowA"
 }
