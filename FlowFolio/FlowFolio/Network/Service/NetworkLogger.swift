@@ -15,18 +15,16 @@ protocol NetworkLogger {
 extension NetworkLogger {
     func requestWillStart(_ request: URLRequest) {
         print(
-            "🚀 [REQUEST] [\(request.httpMethod ?? "UNKNOWN")] \(request.url?.absoluteString ?? "No URL")"
+            "🚀 [REQUEST] [\(request.httpMethod ?? "UNKNOWN")]" +
+            "\(request.url?.absoluteString ?? "No URL")"
         )
-
         if let headers = request.allHTTPHeaderFields, !headers.isEmpty {
             print("📋 [HEADERS] \(headers)")
         }
-
         if let body = request.httpBody,
            let bodyString = String(data: body, encoding: .utf8) {
             print("📦 [BODY] \(bodyString)")
         }
-
         print("─────────────────────────────────────")
     }
 
@@ -42,9 +40,11 @@ extension NetworkLogger {
             print("─────────────────────────────────────")
             return
         }
-        let statusIcon = httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 ? "✅" : "❌"
+        let statusIcon = httpResponse.statusCode >= 200 
+        && httpResponse.statusCode < 300 ? "✅" : "❌"
         print(
-            "\(statusIcon) [RESPONSE] \(httpResponse.statusCode) \(httpResponse.url?.absoluteString ?? "")"
+          "\(statusIcon) [RESPONSE] \(httpResponse.statusCode) " +
+          "\(httpResponse.url?.absoluteString ?? "")"
         )
         if let data = data,
            let responseString = String(data: data, encoding: .utf8) {
