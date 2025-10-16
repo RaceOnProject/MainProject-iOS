@@ -38,7 +38,7 @@ extension EndpointType {
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        headers?.forEach({ request.setValue($1, forHTTPHeaderField: $0) })
+        headers?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         switch requestType {
         case .plain: break
         case .body(let body):
