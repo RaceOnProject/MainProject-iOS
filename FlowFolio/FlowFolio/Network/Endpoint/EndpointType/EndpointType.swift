@@ -40,7 +40,8 @@ extension EndpointType {
         request.httpMethod = method.rawValue
         headers?.forEach { request.setValue($1, forHTTPHeaderField: $0) }
         switch requestType {
-        case .plain: break
+        case .plain:
+            break
         case .body(let body):
             do {
                 request.httpBody = try JSONEncoder().encode(body)
