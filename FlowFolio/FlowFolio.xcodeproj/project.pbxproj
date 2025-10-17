@@ -28,7 +28,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D4A203B72E8A45D200BE8101 /* Exceptions for "FlowFolio" folder in "FlowFolio" target */ = {
+		D47E21012EA2313F00B52055 /* Exceptions for "FlowFolio" folder in "FlowFolio" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -41,7 +41,7 @@
 		59530F612E7833AE0001C60C /* FlowFolio */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				D4A203B72E8A45D200BE8101 /* Exceptions for "FlowFolio" folder in "FlowFolio" target */,
+				D47E21012EA2313F00B52055 /* Exceptions for "FlowFolio" folder in "FlowFolio" target */,
 			);
 			path = FlowFolio;
 			sourceTree = "<group>";
