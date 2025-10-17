@@ -11,7 +11,8 @@ enum NetworkConfig {
     static let baseURL: URL = {
         guard let urlString = Bundle.main.infoDictionary?["BASE_URL"] as? String,
               let baseURL = URL(string: urlString) else {
-            fatalError("Config의 BaseURL값을 읽어올 수 없음")
+            assertionFailure("Config의 BaseURL값을 읽어올 수 없음")
+            return URL(string: "")!
         }
         return baseURL
     }()
